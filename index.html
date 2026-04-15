@@ -151,7 +151,7 @@
     <div class="met"><div class="mlbl">Coaching needed</div><div class="mval" id="mcoach">No</div></div>
   </div>
 
-<button class="gbtn" id="submitBtn" onclick="submitToSheet()" style="background:#085041; color:white; margin-top:10px;">Submit</button>
+<button class="gbtn" id="submitBtn" onclick="submitToSheet()">Save to Google Sheet</button>
 </div>
 
 <script>
@@ -193,7 +193,7 @@ function upd(){
 document.getElementById('drev').valueAsDate=new Date();
 async function submitToSheet() {
   const btn = document.getElementById('submitBtn');
-  const url = "https://script.google.com/macros/s/AKfycbw1AvcTSb5b7B6QMmsI3Hdn-1r-KEpTJoZJ6-AFL1hQ2zZZTK9OfVUef8S9V8I6DtcEZw/exec"; // Make sure your URL is pasted here!
+  const url = "https://script.google.com/macros/s/AKfycbyhJpXG9MZNUDUq2KqamqJKAYVOpA1TTH8svrJnBKEY8DvogaUJp45-vKQVZzcFwYMhVQ/exec"; // Make sure your URL is pasted here!
   
   // Visual feedback that it's working
   btn.textContent = "Submitting...";
