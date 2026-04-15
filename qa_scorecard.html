@@ -52,9 +52,10 @@
   .mval.d{color:#A32D2D}
   .mval.w{color:#633806}
   .mval.g{color:#085041}
-  .gbtn{width:100%;padding:11px;font-size:14px;font-weight:600;border:none;border-radius:8px;background:#085041;color:white;cursor:pointer}
-  .gbtn:hover{opacity:0.9}
-  .gbtn:disabled{background:#ccc;cursor:not-allowed}
+  .gbtn{width:100%;padding:11px;font-size:14px;font-weight:600;border:1px solid #ccc;border-radius:8px;background:#f5f5f3;color:#1a1a18;cursor:pointer}
+  .gbtn:hover{background:#eee}
+  .print-btn{padding:8px 16px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer;margin-bottom:20px}
+  @media print{.print-btn,.gbtn{display:none} body{background:#fff;padding:12px}}
   @media(max-width:500px){.frow,.egrid,.mrow{grid-template-columns:1fr}}
 </style>
 </head>
@@ -62,6 +63,7 @@
 
 <h1>QA Scorecard</h1>
 <p class="sub">Hybrid scoring — overall quality rating + tiered error checklist</p>
+
 
 <div class="sec">
   <div class="sec-lbl">Ticket info</div>
@@ -91,69 +93,70 @@
 
   <div class="tier-hdr">
     <span class="badge bc">Critical</span>
-    <span style="font-size:12px;color:#888">Auto-triggers coaching</span>
+    <span style="font-size:12px;color:#888">Auto-triggers immediate coaching flag</span>
   </div>
   <div class="egrid">
     <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Incorrect or incomplete information given</div>
-    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Failed to correctly identify issue</div>
-    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>SOP / procedure not followed</div>
-    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Question(s) left unanswered</div>
+    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Failed to correctly identify customer's issue</div>
+    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Company SOP / procedure not followed</div>
+    <div class="chip" data-t="c" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Customer question(s) left unanswered</div>
   </div>
 
   <div class="tier-hdr">
     <span class="badge bm">Major</span>
-    <span style="font-size:12px;color:#888">Significant CX impact</span>
+    <span style="font-size:12px;color:#888">Impacts customer experience significantly</span>
   </div>
   <div class="egrid">
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Unclear resolution/next steps</div>
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Template not customized</div>
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Missing info in response</div>
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Repetitive response</div>
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Missing closing</div>
-    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Review invite missing</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Unclear or missing next steps / resolution</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Template not used or not customized</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Not all required info provided in one response</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Repetitive or redundant response</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Improper or missing closing</div>
+    <div class="chip" data-t="m" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Review invite missing (when required)</div>
   </div>
 
   <div class="tier-hdr">
     <span class="badge bn">Minor</span>
-    <span style="font-size:12px;color:#888">Polish issues</span>
+    <span style="font-size:12px;color:#888">Polish and formatting issues</span>
   </div>
   <div class="egrid">
-    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Improper greeting/name</div>
+    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Improper greeting or wrong name in salutation</div>
     <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Incorrect ticket tagging</div>
-    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Wrong tone used</div>
-    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Grammar/spelling</div>
+    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Wrong language or tone used</div>
+    <div class="chip" data-t="n" onclick="tog(this)"><div class="cbox"><span class="cmark">✓</span></div>Grammar or spelling errors</div>
   </div>
 </div>
 
 <div class="sec">
-  <div class="sec-lbl">Coaching required?</div>
+  <div class="sec-lbl">Immediate coaching required?</div>
   <div class="ctog">
     <div class="trk" id="trk" onclick="togCoach()"><div class="thb" id="thb"></div></div>
     <div>
       <div style="font-size:13px" id="clbl">No</div>
+      <div style="font-size:11px;color:#888;margin-top:2px">Auto-flags on any critical error. Can also be toggled manually.</div>
     </div>
   </div>
 </div>
 
 <div class="sec">
   <div class="sec-lbl">QA findings / coaching notes</div>
-  <textarea id="fnotes" placeholder="Notes..." style="min-height:80px"></textarea>
+  <textarea id="fnotes" placeholder="What was done well? Specific coaching points? Additional context..." style="min-height:80px"></textarea>
 </div>
 
 <div class="sec">
   <div class="sec-lbl">Summary</div>
   <div class="mrow">
-    <div class="met"><div class="mlbl">Score</div><div class="mval" id="mscore">—</div></div>
-    <div class="met"><div class="mlbl">Errors</div><div class="mval" id="merrs">0</div></div>
-    <div class="met"><div class="mlbl">Coach</div><div class="mval" id="mcoach">No</div></div>
+    <div class="met"><div class="mlbl">Quality score</div><div class="mval" id="mscore">—</div></div>
+    <div class="met"><div class="mlbl">Errors flagged</div><div class="mval" id="merrs">0</div></div>
+    <div class="met"><div class="mlbl">Coaching needed</div><div class="mval" id="mcoach">No</div></div>
   </div>
-  <button class="gbtn" id="submitBtn" onclick="submitToSheet()">Submit</button>
+
+<button class="gbtn" id="submitBtn" onclick="submitToSheet()" style="background:#085041; color:white; margin-top:10px;">Submit</button>
 </div>
 
 <script>
 var _sc=0,_errs=[],_coach=false;
-var descs={1:'Urgent attention',2:'Areas to improve',3:'Meets expectations',4:'Good quality',5:'Excellent'};
-
+var descs={1:'Significant issues — needs urgent attention',2:'Below standard — multiple areas to improve',3:'Meets basic expectations',4:'Good quality with minor gaps',5:'Excellent — meets all standards'};
 function setScore(v){
   _sc=v;
   document.querySelectorAll('.sbtn').forEach(function(b,i){b.className='sbtn';if(i+1===v)b.classList.add('s'+v);});
@@ -171,21 +174,30 @@ function togCoach(){setCoach(!_coach);}
 function setCoach(v){
   _coach=v;
   document.getElementById('trk').classList.toggle('on',v);
-  document.getElementById('clbl').textContent=v?'Yes':'No';
+  var lbl=document.getElementById('clbl');
+  lbl.textContent=v?'Yes — schedule coaching session':'No';
+  lbl.style.color=v?'#A32D2D':'#1a1a18';
   upd();
 }
 function upd(){
-  document.getElementById('mscore').textContent=_sc||'—';
-  document.getElementById('merrs').textContent=_errs.length;
-  document.getElementById('mcoach').textContent=_coach?'Yes':'No';
+  var sv=document.getElementById('mscore');
+  sv.textContent=_sc||'—';
+  sv.className='mval'+(_sc<=2&&_sc>0?' d':_sc===3?' w':_sc>=4?' g':'');
+  var ev=document.getElementById('merrs');
+  ev.textContent=_errs.length;
+  ev.className='mval'+(_errs.length>=3?' d':_errs.length>=1?' w':'');
+  var cv=document.getElementById('mcoach');
+  cv.textContent=_coach?'Yes':'No';
+  cv.className='mval'+(_coach?' d':'');
 }
-
+document.getElementById('drev').valueAsDate=new Date();
 async function submitToSheet() {
   const btn = document.getElementById('submitBtn');
-  // PASTE YOUR GOOGLE WEB APP URL BELOW
-  const url = "PASTE_YOUR_URL_HERE"; 
+  const url = "YOUR_WEB_APP_URL_HERE"; // Make sure your URL is pasted here!
   
+  // Visual feedback that it's working
   btn.textContent = "Submitting...";
+  btn.style.opacity = "0.5";
   btn.disabled = true;
 
   const payload = {
@@ -201,16 +213,22 @@ async function submitToSheet() {
   };
 
   try {
-    await fetch(url, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
-    alert("Submitted successfully!");
-    location.reload(); 
-  } catch (e) {
-    alert("Error saving.");
+    // We use 'no-cors' to prevent the browser from blocking the "Success" message
+    await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors', 
+      body: JSON.stringify(payload)
+    });
+    
+    alert("QA Review successfully submitted!");
+    location.reload(); // This clears the form automatically for the next review
+  } catch (error) {
+    alert("Something went wrong. Please check your internet and try again.");
     btn.textContent = "Submit";
+    btn.style.opacity = "1";
     btn.disabled = false;
   }
 }
-document.getElementById('drev').valueAsDate=new Date();
 </script>
 </body>
 </html>
